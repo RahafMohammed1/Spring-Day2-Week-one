@@ -1,0 +1,92 @@
+Spring Homework 2-week one 
+
+Q1/
+
+The output/
+“hey from Massage 1”
+
+The Discretion / 
+- We add a @Bean annotation above the method so the spring invokes it and implements it.
+- there is one Bean so It is definitely the only one that will be implemented.
+
+Q2/
+
+The output/
+“hey from Massage 1”
+“hey from Massage 2”
+
+The Discretion / 
+- We add a @Bean annotation above the methods so the spring invokes it and implements it.
+- There are two beans the second bean receives the value of String so we defined it will receive a value coming from the first bean by using @Qualifier(“1”) annotation.
+- We give priority to bean number one to implement first by using @Qualifier annotation so always Massage 1 will implement first and then massage 2.
+
+Q3/
+
+The output may be /  
+Case 1 :   
+hey from message 1
+hey from message 3
+hey from message 2
+
+
+Case 2:   
+hey from message 3
+hey from message 2
+hey from message 1
+
+Case 3:    
+hey from message 3
+hey from message 1
+hey from message 2
+
+The Discretion / 
+- there is no priority between message 1 and  message 3 any one of them can implement first and as well as for message 1, message 2
+- But message 2 will always implement after message 3 because we add @Qualifier(“3”)as a parameter in message 2 as well as we annotated massage 3 with @Qualifier(“3”) so the Spring will take the value returned from message 3 and put it as a parameter in message 2.
+
+Q4/
+
+The output may be /  
+Case 1 :   
+hey from message 1
+hey from message 3
+hey from message 2
+
+
+Case 2:   
+hey from message 3
+hey from message 2
+hey from message 1
+
+Case 3:    
+hey from message 3
+hey from message 1
+hey from message 2
+
+The Discretion / 
+- First, The Spring does not invoke and implement the MainController Method because is not annotated as @Bean
+- there is no priority between message 1 and  message 3 any one of them can implement first and as well as for message 1, message 2
+- But message 2 will always implement after message 3 because we add @Qualifier(“3”)as a parameter in message 2 as well as we annotated massage 3 with @Qualifier(“3”) so the Spring will take the value returned from message 3 and put it as a parameter in message 2.
+
+Q5/
+
+The output may be /  
+Case 1 :   
+hey from message 1
+hey from message 3
+hey from message 2
+
+
+Case 2:   
+hey from message 3
+hey from message 2
+hey from message 1
+
+Case 3:    
+hey from message 3
+hey from message 1
+hey from message 2
+
+The Discretion / 
+- First, The Spring does not invoke and implement the MainController Method because is not annotated as @Bean
+- there is no priority between message 1 and  message 3 any one of them can implement first and as well as for message 1, message 2
+- But message 2 will implement after message 3 because we add @Qualifier(“3”)as a parameter in message 2 as well as we annotated massage 3 with @Qualifier(“3”) so the Spring will take the value returned from message 3 and put it as a parameter in message 2.
